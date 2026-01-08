@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
-const heroBg = 'https://res.cloudinary.com/dtvplbrns/image/upload/v1767844431/hero_bg_purple_jpbftn.jpg';
+// Optimized hero background with Cloudinary transformations
+const heroBg = 'https://res.cloudinary.com/dtvplbrns/image/upload/f_auto,q_auto:good,w_1920/v1767844431/hero_bg_purple_jpbftn.jpg';
 
 const Hero = ({ introPlayed, setIntroPlayed }) => {
     // Parallax Motion Values
@@ -72,7 +73,8 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
                 <motion.img
                     src={heroBg}
                     alt="Hero Background"
-                    className="w-full h-full"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
                     style={{
                         scale: 1.1
                     }}

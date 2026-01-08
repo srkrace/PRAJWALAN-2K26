@@ -5,14 +5,13 @@ const Preloader = ({ onLoadingComplete }) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        // Simulate loading time (e.g., 2.5s loop duration roughly)
-        // Adjust this duration as needed for internal loading logic
+        // Reduced loading time for faster initial load
         const timer = setTimeout(() => {
             setLoaded(true);
             setTimeout(() => {
                 if (onLoadingComplete) onLoadingComplete();
-            }, 800);
-        }, 3500);
+            }, 500);
+        }, 1500); // Reduced from 3500ms to 1500ms
 
         return () => clearTimeout(timer);
     }, [onLoadingComplete]);
@@ -35,9 +34,9 @@ const Preloader = ({ onLoadingComplete }) => {
                     {/* 1. Deep Atmospheric Background */}
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(109,40,217,0.15)_0%,rgba(0,0,0,1)_70%)]"></div>
 
-                    {/* 2. Ambient Particles from Bottom */}
+                    {/* 2. Ambient Particles from Bottom - Optimized */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        {[...Array(15)].map((_, i) => (
+                        {[...Array(8)].map((_, i) => (
                             <motion.div
                                 key={i}
                                 className="absolute bg-violet-500 rounded-full opacity-0"

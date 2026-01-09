@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import { About, Domains, Gallery, Timeline, Modules, PastWinners, Prizes, Sponsors, FAQs } from './components/Sections';
 import AceBody from './components/AceBody';
+import BrochureViewer from './components/BrochureViewer';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ function App() {
           <main>
             {view === 'home' && (
               <>
-                <Hero introPlayed={introPlayed} setIntroPlayed={setIntroPlayed} />
+                <Hero introPlayed={introPlayed} setIntroPlayed={setIntroPlayed} setActiveView={setView} />
                 <About />
                 <Domains />
                 <Timeline />
@@ -48,12 +49,12 @@ function App() {
               <Gallery />
             )}
 
-            {view === 'faq' && (
-              <FAQs />
-            )}
-
             {view === 'team' && (
               <Team />
+            )}
+
+            {view === 'brochure' && (
+              <BrochureViewer />
             )}
           </main>
 

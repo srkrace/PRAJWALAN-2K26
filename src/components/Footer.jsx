@@ -77,8 +77,10 @@ const Footer = ({ setActiveView }) => {
 
                         <div className="group relative inline-flex items-center justify-between bg-white text-black pl-5 pr-1 py-1 rounded-full w-full max-w-[240px] shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] transition-all duration-300 cursor-pointer overflow-hidden">
                             <span className="font-semibold text-sm">Register Now</span>
-                            <div className="bg-black text-white p-2.5 rounded-full rotate-[-45deg] group-hover:rotate-0 transition-transform duration-300">
-                                <i className="bi bi-arrow-right text-lg"></i>
+                            <div className="bg-black text-white p-2.5 rounded-full transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
+                                </svg>
                             </div>
                         </div>
                     </div>

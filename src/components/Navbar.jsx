@@ -21,10 +21,7 @@ const Navbar = ({ setActiveView }) => {
 
     const handleNavClick = (link) => {
         setIsOpen(false);
-        if (link.name === 'FAQ') {
-            setActiveView('faq');
-            window.scrollTo(0, 0);
-        } else if (link.name === 'Gallery') {
+        if (link.name === 'Gallery') {
             setActiveView('gallery');
             window.scrollTo(0, 0);
         } else if (link.name === 'Team') {

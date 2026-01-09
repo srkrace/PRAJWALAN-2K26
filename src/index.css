@@ -112,6 +112,26 @@ body {
   /* Chrome, Safari, Opera */
 }
 
+/* Custom Scrollbar for Brochure Viewer */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.8);
+}
+
 /* Utility for text gradients */
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-white;

@@ -4,7 +4,7 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 // Optimized hero background with Cloudinary transformations
 const heroBg = 'https://res.cloudinary.com/dtvplbrns/image/upload/f_auto,q_auto:good,w_1920/v1767844431/hero_bg_purple_jpbftn.jpg';
 
-const Hero = ({ introPlayed, setIntroPlayed }) => {
+const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
     // Parallax Motion Values
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -156,7 +156,10 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="px-10 py-4 rounded-full border border-violet-500/50 bg-violet-900/20 backdrop-blur-md hover:bg-violet-900/40 text-violet-200 font-orbitron font-bold tracking-widest uppercase transition-all min-w-[220px] shadow-[0_0_15px_rgba(139,92,246,0.2)]"
-                                onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => {
+                                    setActiveView('brochure');
+                                    window.scrollTo(0, 0);
+                                }}
                             >
                                 View Brochure
                             </motion.button>
@@ -164,8 +167,11 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-10 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-orbitron font-bold tracking-widest uppercase shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all min-w-[220px]"
+                                className="px-10 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-orbitron font-bold tracking-widest uppercase shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all min-w-[220px] flex items-center justify-center gap-2"
                             >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
+                                </svg>
                                 Register Now
                             </motion.button>
                         </motion.div>
@@ -174,7 +180,6 @@ const Hero = ({ introPlayed, setIntroPlayed }) => {
             </div>
 
             {/* Scroll Indicator */}
-
         </section>
     );
 };

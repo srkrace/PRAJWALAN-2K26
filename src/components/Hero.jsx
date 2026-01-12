@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 // Optimized hero background with Cloudinary transformations
 const heroBg = 'https://res.cloudinary.com/dtvplbrns/image/upload/f_auto,q_auto:good,w_1920/v1767844431/hero_bg_purple_jpbftn.jpg';
 
 const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
+    // Registration unlock timer (invisible - runs in background)
+    const REGISTRATION_UNLOCK_DATE = new Date('2026-01-20T00:00:00+05:30').getTime();
+    const [isRegistrationUnlocked, setIsRegistrationUnlocked] = useState(false);
+
+    useEffect(() => {
+        // Check if registration should be unlocked
+        const checkRegistrationStatus = () => {
+            const now = new Date().getTime();
+            setIsRegistrationUnlocked(now >= REGISTRATION_UNLOCK_DATE);
+        };
+
+        // Initial check
+        checkRegistrationStatus();
+
+        // Update every second (timer runs silently in background)
+        const interval = setInterval(checkRegistrationStatus, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleRegisterClick = () => {
+        if (isRegistrationUnlocked) {
+            window.open('https://unstop.com/p/prajwalan-2k26-sagi-rama-krishnam-raju-engineering-college-srkrec-bhimavaram-1619164?lb=', '_blank');
+        }
+    };
+
     // Parallax Motion Values
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -165,13 +191,20 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
                             </motion.button>
 
                             <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-10 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-orbitron font-bold tracking-widest uppercase shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all min-w-[220px] flex items-center justify-center gap-2"
+                                whileHover={isRegistrationUnlocked ? { scale: 1.05 } : {}}
+                                whileTap={isRegistrationUnlocked ? { scale: 0.95 } : {}}
+                                className={`px-10 py-4 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white font-orbitron font-bold tracking-widest uppercase shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all min-w-[220px] flex items-center justify-center gap-2 ${isRegistrationUnlocked
+                                        ? 'hover:from-violet-500 hover:to-purple-500 cursor-pointer'
+                                        : 'opacity-60 cursor-not-allowed'
+                                    }`}
+                                onClick={handleRegisterClick}
+                                disabled={!isRegistrationUnlocked}
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
-                                </svg>
+                                {!isRegistrationUnlocked && (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
+                                    </svg>
+                                )}
                                 Register Now
                             </motion.button>
                         </motion.div>

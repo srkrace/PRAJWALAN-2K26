@@ -576,27 +576,35 @@ export const Timeline = () => {
             icon: "bi-person-plus-fill"
         },
         {
-            date: "09",
-            month: "FEB",
+            date: "25",
+            month: "JAN",
             title: "ROUND 1",
-            subtitle: "QUALIFIERS",
-            details: ["Video Submission", "Shortlisting"],
-            icon: "bi-laptop"
+            subtitle: "IDEA SUBMISSION",
+            details: ["PPT Upload", "Unstop Submission"],
+            icon: "bi-lightbulb-fill"
         },
         {
-            date: "18",
+            date: "01",
             month: "FEB",
             title: "ROUND 2",
-            subtitle: "ELIMINATION",
-            details: ["PPT Presentation", "Evaluation"],
+            subtitle: "VIDEO PRESENTATION",
+            details: ["Video Promotion", "LinkedIn Post"],
+            icon: "bi-camera-video-fill"
+        },
+        {
+            date: "16",
+            month: "FEB",
+            title: "ROUND 3",
+            subtitle: "PPT REVIEW",
+            details: ["Idea Presentation", "Evaluation"],
             icon: "bi-broadcast"
         },
         {
             date: "27",
             month: "FEB",
-            title: "HAVOC",
-            subtitle: "FINALE",
-            details: ["24H Marathon", "Grand Finale"],
+            title: "GRAND FINALE",
+            subtitle: "HAVOC",
+            details: ["24H Marathon", "Final Showdown"],
             icon: "bi-trophy-fill"
         }
     ];

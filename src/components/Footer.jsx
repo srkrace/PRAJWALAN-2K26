@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Footer = ({ setActiveView }) => {
+    // Registration unlock timer (invisible - runs in background)
+    const REGISTRATION_UNLOCK_DATE = new Date('2026-01-20T00:00:00+05:30').getTime();
+    const [isRegistrationUnlocked, setIsRegistrationUnlocked] = useState(false);
+
+    useEffect(() => {
+        // Check if registration should be unlocked
+        const checkRegistrationStatus = () => {
+            const now = new Date().getTime();
+            setIsRegistrationUnlocked(now >= REGISTRATION_UNLOCK_DATE);
+        };
+
+        // Initial check
+        checkRegistrationStatus();
+
+        // Update every second (timer runs silently in background)
+        const interval = setInterval(checkRegistrationStatus, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleRegisterClick = () => {
+        if (isRegistrationUnlocked) {
+            window.open('https://unstop.com/p/prajwalan-2k26-sagi-rama-krishnam-raju-engineering-college-srkrec-bhimavaram-1619164?lb=', '_blank');
+        }
+    };
+
     return (
         <footer className="w-full bg-[#050505] pt-12 pb-6 px-4 md:px-8 font-sans relative overflow-hidden">
             {/* Background Glow Effects */}
@@ -75,12 +101,24 @@ const Footer = ({ setActiveView }) => {
                             Be a part of the biggest tech fest. We are excited to see you there!
                         </p>
 
-                        <div className="group relative inline-flex items-center justify-between bg-white text-black pl-5 pr-1 py-1 rounded-full w-full max-w-[240px] shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] transition-all duration-300 cursor-pointer overflow-hidden">
+                        <div
+                            className={`group relative inline-flex items-center justify-between bg-white text-black pl-5 pr-1 py-1 rounded-full w-full max-w-[240px] shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 overflow-hidden ${isRegistrationUnlocked
+                                    ? 'hover:shadow-[0_0_25px_rgba(139,92,246,0.3)] cursor-pointer'
+                                    : 'opacity-60 cursor-not-allowed'
+                                }`}
+                            onClick={handleRegisterClick}
+                        >
                             <span className="font-semibold text-sm">Register Now</span>
                             <div className="bg-black text-white p-2.5 rounded-full transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
-                                </svg>
+                                {isRegistrationUnlocked ? (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                    </svg>
+                                ) : (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M8 10a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" />
+                                    </svg>
+                                )}
                             </div>
                         </div>
                     </div>

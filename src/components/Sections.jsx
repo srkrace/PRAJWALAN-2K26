@@ -60,7 +60,7 @@ const Section = ({ id, title, children, className = "", ...props }) => (
     </section>
 );
 
-export const About = () => {
+export const About = ({ setActiveView }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const [isHovered, setIsHovered] = React.useState(false);
@@ -188,7 +188,13 @@ export const About = () => {
                                 Prajwalan is a technology-focused innovation marathon that brings together students and developers to solve real-world problems using modern engineering and artificial intelligence. Participants collaborate in teams to design, build, and prototype impactful solutions across domains such as AI, web development, data science, and emerging technologies. Guided by mentors and evaluated by experts, teams focus on practical, scalable, and user-centric systems rather than theoretical ideas.
                             </p>
 
-                            <button className="relative px-10 py-3 bg-[#1a1033] border border-violet-500/50 hover:border-violet-400 text-violet-400 hover:text-white transition-all duration-300 font-orbitron tracking-widest text-sm uppercase group/btn overflow-hidden shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                            <button
+                                onClick={() => {
+                                    setActiveView('poster');
+                                    window.scrollTo(0, 0);
+                                }}
+                                className="relative inline-block px-10 py-3 bg-[#1a1033] border border-violet-500/50 hover:border-violet-400 text-violet-400 hover:text-white transition-all duration-300 font-orbitron tracking-widest text-sm uppercase group/btn overflow-hidden shadow-[0_0_20px_rgba(139,92,246,0.3)] cursor-pointer"
+                            >
                                 <span className="relative z-10">Know More</span>
                                 <div className="absolute inset-0 bg-violet-600/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300"></div>
                                 <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>

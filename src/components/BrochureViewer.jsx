@@ -27,7 +27,7 @@ const BrochureViewer = () => {
                         className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.3)] border border-violet-500/20"
                     >
                         <img
-                            src="https://res.cloudinary.com/domogztsv/image/upload/v1768889814/broucher1_qvqype.png"
+                            src="https://res.cloudinary.com/domogztsv/image/upload/v1769364346/PRAJWALAN_---2K26_front.jpg_rr7062.jpg"
                             alt="Prajwalan 2K26 Brochure - Front"
                             className="w-full h-auto"
                             loading="lazy"
@@ -45,7 +45,7 @@ const BrochureViewer = () => {
                         className="relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.3)] border border-violet-500/20"
                     >
                         <img
-                            src="https://res.cloudinary.com/domogztsv/image/upload/v1768889874/brocher2_dzxyip.png"
+                            src="https://res.cloudinary.com/domogztsv/image/upload/v1769364401/PRAJWALAN_--2K26_final_back.jpg_gqiddj.jpg"
                             alt="Prajwalan 2K26 Brochure - Back"
                             className="w-full h-auto"
                             loading="lazy"

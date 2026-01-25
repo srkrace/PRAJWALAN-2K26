@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import { About, Domains, Gallery, Timeline, Modules, PastWinners, Prizes, Sponsors, FAQs } from './components/Sections';
 import AceBody from './components/AceBody';
 import BrochureViewer from './components/BrochureViewer';
+import PosterViewer from './components/PosterViewer';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,7 +34,7 @@ function App() {
             {view === 'home' && (
               <>
                 <Hero introPlayed={introPlayed} setIntroPlayed={setIntroPlayed} setActiveView={setView} />
-                <About />
+                <About setActiveView={setView} />
                 <Domains />
                 <Timeline />
                 <Modules />
@@ -55,6 +56,10 @@ function App() {
 
             {view === 'brochure' && (
               <BrochureViewer />
+            )}
+
+            {view === 'poster' && (
+              <PosterViewer />
             )}
           </main>
 

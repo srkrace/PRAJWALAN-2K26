@@ -39,7 +39,7 @@ const Team = () => {
             id: 5,
             name: "Aakash",
             img: aakashImg,
-            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
+            socials: { linkedin: "https://www.linkedin.com/in/venkata-aakash-179415288/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         { id: 'm3', name: "Abhi", img: abhiImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         { id: 'm2', name: "Amith", img: amithImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
@@ -51,55 +51,55 @@ const Team = () => {
             socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         // B
-        { id: 'm4', name: "Bhargavi", img: bhargaviImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'm4', name: "Bhargavi", img: bhargaviImg, socials: { linkedin: "https://www.linkedin.com/in/bhargavi-alluri-048704295", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // C
-        { id: 'm5', name: "Chaitanya", img: chaitanyaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'm5', name: "Chaitanya", img: chaitanyaImg, socials: { linkedin: "https://www.linkedin.com/in/chaitu930?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         {
             id: 6,
             name: "Charan",
             img: charanImg,
-            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
+            socials: { linkedin: "https://www.linkedin.com/in/sri-ram-charan-nalla-bb2a5a2b9", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         // D
         {
             id: 'c1',
             name: "Deepak",
             img: deepakChiefImg,
-            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
+            socials: { linkedin: "https://www.linkedin.com/in/deepak-thota-49004a27b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         { id: 'd5', name: "Deepak Vardhan", img: deepakImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // G
-        { id: 'm9', name: "Gana", img: ganaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'm9', name: "Gana", img: ganaImg, socials: { linkedin: "https://www.linkedin.com/in/sri-sri-gana-kurma-63ab4929b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // H
         { id: 'a3', name: "Hasini", img: hasiniImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
-        { id: 'm6', name: "Hemanth", img: hemanthImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'm6', name: "Hemanth", img: hemanthImg, socials: { linkedin: "https://www.linkedin.com/in/bolla-hemanth-7926812b9", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // L
         {
             id: 'c4',
             name: "Lokesh Gandhi",
             img: lokeshChiefImg,
-            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
+            socials: { linkedin: "https://www.linkedin.com/in/lokesh-gandhi-modalavalasa-9a69a5292/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         // M
         { id: 'd1', name: "Madhu", img: madhuImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
-        { id: 'a2', name: "Manasa", img: manasaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'a2', name: "Manasa", img: manasaImg, socials: { linkedin: "https://www.linkedin.com/in/manasa-kolli-a5743b28a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         { id: 'd4', name: "Meghana", img: meghanaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         {
             id: 7,
             name: "Mounika",
             img: mounikaImg,
-            socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
+            socials: { linkedin: "https://www.linkedin.com/in/mounika-korrakuti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" }
         },
         // N
         { id: 'm7', name: "Niharika", img: niharikaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // P
-        { id: 'd2', name: "Prapurna", img: prapurnaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'd2', name: "Prapurna", img: prapurnaImg, socials: { linkedin: "https://www.linkedin.com/in/prapurna-dandakadiyala-7741b52bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // R
-        { id: 'a4', name: "Ramya", img: ramyaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'a4', name: "Ramya", img: ramyaImg, socials: { linkedin: "https://www.linkedin.com/in/ramyamusulla", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         { id: 'm8', name: "Rishik", img: rishikImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // S
         { id: 'd3', name: "Satya", img: satyaImg, socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
-        { id: 'a1', name: "Suneetha", img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767783114/Gemini_Generated_Image_td2a3ltd2a3ltd2a_imtlox.png", socials: { linkedin: "https://www.linkedin.com/company/association-of-computer-engineers-ace/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
+        { id: 'a1', name: "Suneetha", img: "https://res.cloudinary.com/dtvplbrns/image/upload/v1767783114/Gemini_Generated_Image_td2a3ltd2a3ltd2a_imtlox.png", socials: { linkedin: "https://www.linkedin.com/in/suneetha-vemagiri-8018042ab/", instagram: "https://www.instagram.com/srkr_ace?igsh=YmNlZGxhbnJicDg=", email: "mailto:srkraceofficial@gmail.com" } },
         // V
         {
             id: 'c2',

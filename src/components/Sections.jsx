@@ -993,32 +993,22 @@ export const Prizes = () => {
     );
 };
 
-// --- PURPLE MARQUEE SPONSORS --- (COMMENTED OUT)
-/*
+// --- SPONSORS SECTION ---
 export const Sponsors = () => {
-    // Row 1: Tech Giants
-    const row1Sponsors = [
-        { name: "Google", url: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-        { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
-        { name: "Amazon", url: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-        { name: "Zomato", url: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Zomato_Logo.svg" }
+    const sponsors = [
+        {
+            name: "Sponsor 1",
+            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770135327/ChatGPT_Image_Feb_3__2026__09_35_47_PM-removebg-preview_pbdyz5.png"
+        },
+        {
+            name: "Sponsor 2",
+            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770135581/ChatGPT_Image_Feb_3__2026__09_37_24_PM-removebg-preview_qqhixv.png"
+        }
     ];
-
-    // Row 2: Dev & Cloud
-    const row2Sponsors = [
-        { name: "Facebook", url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" },
-        { name: "IBM", url: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" },
-        { name: "Meta", url: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
-        { name: "PayPal", url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" }
-    ];
-
-    // Duplicate for marquee loop
-    const marqueeRow1 = [...row1Sponsors, ...row1Sponsors, ...row1Sponsors, ...row1Sponsors];
-    const marqueeRow2 = [...row2Sponsors, ...row2Sponsors, ...row2Sponsors, ...row2Sponsors];
 
     return (
         <Section id="sponsors" className="pt-8 pb-16 bg-black relative overflow-hidden" title="">
-            {/* Header *\/}
+            {/* Header */}
             <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -1027,13 +1017,13 @@ export const Sponsors = () => {
                 className="flex items-center justify-center mb-16 relative z-10 w-full mt-12"
             >
                 <div className="flex items-center gap-2 md:gap-4">
-                    {/* Left Bracket *\/}
+                    {/* Left Bracket */}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M35 5 L5 50 L35 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
 
                     <div className="relative overflow-hidden pl-4 pr-2 md:pl-6 md:pr-4 py-2 border-x-2 border-violet-400/80 bg-transparent rounded-xl">
-                        {/* Shine Effect *\/}
+                        {/* Shine Effect */}
                         <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent skew-x-12"
                             initial={{ x: "-100%" }}
@@ -1051,65 +1041,43 @@ export const Sponsors = () => {
                         </h2>
                     </div>
 
-                    {/* Right Bracket *\/}
+                    {/* Right Bracket */}
                     <svg width="40" height="80" viewBox="0 0 40 100" className="w-6 h-12 md:w-8 md:h-16 fill-none stroke-violet-400/80 stroke-[16] drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]">
                         <path d="M5 5 L35 50 L5 95" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
             </motion.div>
 
-            {/* Marquee Container *\/}
-            <div className="flex flex-col gap-16 relative z-10 overflow-hidden opacity-90 hover:opacity-100 transition-opacity duration-500 group">
-
-                {/* Row 1: Left to Right *\/}
-                <div className="flex overflow-visible relative w-full py-4">
-                    <div className="flex gap-20 items-center whitespace-nowrap animate-marquee-reverse group-hover:paused will-change-transform">
-                        {marqueeRow1.map((brand, idx) => (
-                            <div key={`row1-${idx}`} className="w-28 md:w-40 flex-shrink-0 flex items-center justify-center">
-                                <img
-                                    src={brand.url}
-                                    alt={brand.name}
-                                    className="w-full h-12 object-contain transition-transform duration-300 hover:scale-125 drop-shadow-[0_0_5px_rgba(139,92,246,0.3)] hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
-                                    style={{
-                                        filter: "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1)"
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Row 2: Right to Left *\/}
-                <div className="flex overflow-visible relative w-full py-4">
-                    <div className="flex gap-20 items-center whitespace-nowrap animate-marquee group-hover:paused will-change-transform">
-                        {marqueeRow2.map((brand, idx) => (
-                            <div key={`row2-${idx}`} className="w-28 md:w-40 flex-shrink-0 flex items-center justify-center">
-                                <img
-                                    src={brand.url}
-                                    alt={brand.name}
-                                    className="w-full h-12 object-contain transition-transform duration-300 hover:scale-125 drop-shadow-[0_0_5px_rgba(139,92,246,0.3)] hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.8)]"
-                                    style={{
-                                        filter: "brightness(0.9) sepia(1) hue-rotate(240deg) saturate(3) contrast(1.1)"
-                                    }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            {/* Static Sponsor Logos */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 relative z-10 px-6 py-8">
+                {sponsors.map((sponsor, idx) => (
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: idx * 0.2 }}
+                        whileHover={{
+                            y: -15,
+                            scale: 1.05,
+                            transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        className="flex items-center justify-center cursor-pointer group"
+                    >
+                        <img
+                            src={sponsor.url}
+                            alt={sponsor.name}
+                            className="h-64 md:h-80 w-auto object-contain drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-300 group-hover:brightness-110"
+                        />
+                    </motion.div>
+                ))}
             </div>
 
-            {/* Background elements to match the misty look *\/}
+            {/* Background elements */}
             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-violet-900/5 to-transparent pointer-events-none"></div>
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none"></div>
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none"></div>
-
         </Section>
     );
 };
-*/
-
-// Temporary placeholder to avoid import errors
-export const Sponsors = () => null;
 
 // --- HOLOGRAPHIC TERMINAL FAQ ---
 export const FAQs = () => {

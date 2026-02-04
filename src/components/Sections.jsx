@@ -998,11 +998,11 @@ export const Sponsors = () => {
     const sponsors = [
         {
             name: "Sponsor 1",
-            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770135327/ChatGPT_Image_Feb_3__2026__09_35_47_PM-removebg-preview_pbdyz5.png"
+            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770183307/ChatGPT_Image_Feb_4__2026__11_01_30_AM-removebg-preview_uxbli2.png"
         },
         {
             name: "Sponsor 2",
-            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770135581/ChatGPT_Image_Feb_3__2026__09_37_24_PM-removebg-preview_qqhixv.png"
+            url: "https://res.cloudinary.com/domogztsv/image/upload/v1770183550/ChatGPT_Image_Feb_4_2026_11_03_00_AM_e2ovjc.png"
         }
     ];
 
@@ -1067,7 +1067,7 @@ export const Sponsors = () => {
                         <img
                             src={sponsor.url}
                             alt={sponsor.name}
-                            className="h-64 md:h-80 w-auto object-contain drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-300 group-hover:brightness-110"
+                            className="h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-300 group-hover:brightness-110"
                         />
                     </motion.div>
                 ))}

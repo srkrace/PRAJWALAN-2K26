@@ -10,6 +10,7 @@ import { About, Domains, Gallery, Timeline, Modules, PastWinners, Prizes, Sponso
 import AceBody from './components/AceBody';
 import BrochureViewer from './components/BrochureViewer';
 import PosterViewer from './components/PosterViewer';
+import ProblemStatements from './components/ProblemStatements';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -60,6 +61,10 @@ function App() {
 
             {view === 'poster' && (
               <PosterViewer />
+            )}
+
+            {view === 'ps' && (
+              <ProblemStatements />
             )}
           </main>
 

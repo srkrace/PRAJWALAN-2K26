@@ -13,6 +13,7 @@ const Navbar = ({ setActiveView }) => {
     }, []);
 
     const navLinks = [
+        { name: 'PS', href: '#ps' },
         { name: 'Team', href: '#team' },
         { name: 'Timeline', href: '#timeline' },
         { name: 'Gallery', href: '#gallery' },
@@ -26,6 +27,9 @@ const Navbar = ({ setActiveView }) => {
             window.scrollTo(0, 0);
         } else if (link.name === 'Team') {
             setActiveView('team');
+            window.scrollTo(0, 0);
+        } else if (link.name === 'PS') {
+            setActiveView('ps');
             window.scrollTo(0, 0);
         } else {
             setActiveView('home');

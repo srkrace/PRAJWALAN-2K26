@@ -13,7 +13,7 @@ const Navbar = ({ setActiveView }) => {
     }, []);
 
     const navLinks = [
-        { name: 'PS', href: '#ps' },
+        { name: 'Problem Statements', href: '#ps' },
         { name: 'Team', href: '#team' },
         { name: 'Timeline', href: '#timeline' },
         { name: 'Gallery', href: '#gallery' },
@@ -28,7 +28,7 @@ const Navbar = ({ setActiveView }) => {
         } else if (link.name === 'Team') {
             setActiveView('team');
             window.scrollTo(0, 0);
-        } else if (link.name === 'PS') {
+        } else if (link.name === 'Problem Statements') {
             setActiveView('ps');
             window.scrollTo(0, 0);
         } else {

@@ -166,18 +166,21 @@ const ProblemStatements = () => {
         const isHovered = hoveredCard === key;
 
         return (
-            <div
+            <motion.div
+                layout
                 onMouseEnter={() => setHoveredCard(key)}
                 onMouseLeave={() => setHoveredCard(null)}
                 className="relative group"
+                transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
             >
                 {/* Subtle Glow effect on hover */}
                 <div
                     className={`absolute -inset-[1px] bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 rounded-lg blur-sm transition-opacity duration-300 ${isHovered ? 'opacity-25' : 'opacity-0'}`}
                 />
 
-                <div
-                    className="relative border border-violet-500/20 bg-gradient-to-br from-violet-900/10 via-black/40 to-purple-900/10 backdrop-blur-sm hover:border-violet-400/40 transition-all duration-300 overflow-hidden rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
+                <motion.div
+                    layout="position"
+                    className="relative border border-violet-500/20 bg-gradient-to-br from-violet-900/10 via-black/40 to-purple-900/10 backdrop-blur-sm hover:border-violet-400/40 transition-all duration-300 overflow-hidden rounded-lg hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
                 >
                     {/* Subtle Animated background gradient */}
                     <div
@@ -190,7 +193,7 @@ const ProblemStatements = () => {
                     >
                         <div className="flex items-center gap-4 flex-1">
                             <span
-                                className={`text-violet-400 font-orbitron font-bold text-sm min-w-[2rem] transition-transform duration-200 ${isHovered ? 'scale-110' : 'scale-100'}`}
+                                className="text-violet-400 font-orbitron font-bold text-sm min-w-[2rem] transition-colors duration-200"
                             >
                                 {String(index + 1).padStart(2, '0')}
                             </span>
@@ -198,37 +201,67 @@ const ProblemStatements = () => {
                                 {problem.title}
                             </h4>
                         </div>
-                        <div
-                            className={`text-violet-400 flex-shrink-0 ml-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
+                        <motion.div
+                            animate={{ rotate: isExpanded ? 180 : 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="text-violet-400 flex-shrink-0 ml-4"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                        </div>
+                        </motion.div>
                     </button>
 
-                    <AnimatePresence>
+                    <AnimatePresence initial={false}>
                         {isExpanded && (
                             <motion.div
+                                key="content"
                                 initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{
-                                    duration: 0.25,
-                                    ease: "easeInOut"
+                                animate={{
+                                    height: "auto",
+                                    opacity: 1,
+                                    transition: {
+                                        height: {
+                                            duration: 0.3,
+                                            ease: [0.4, 0.0, 0.2, 1]
+                                        },
+                                        opacity: {
+                                            duration: 0.25,
+                                            delay: 0.1
+                                        }
+                                    }
+                                }}
+                                exit={{
+                                    height: 0,
+                                    opacity: 0,
+                                    transition: {
+                                        height: {
+                                            duration: 0.3,
+                                            ease: [0.4, 0.0, 0.2, 1]
+                                        },
+                                        opacity: {
+                                            duration: 0.2
+                                        }
+                                    }
                                 }}
                                 className="overflow-hidden"
                             >
-                                <div className="px-6 pb-5 pl-16 border-t border-violet-500/10">
+                                <motion.div
+                                    initial={{ y: -10 }}
+                                    animate={{ y: 0 }}
+                                    exit={{ y: -10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="px-6 pb-5 pl-16 border-t border-violet-500/10"
+                                >
                                     <p className="text-gray-300 font-rajdhani leading-relaxed pt-4 text-base">
                                         {problem.description}
                                     </p>
-                                </div>
+                                </motion.div>
                             </motion.div>
                         )}
                     </AnimatePresence>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         );
     };
 
@@ -268,6 +301,7 @@ const ProblemStatements = () => {
                                     ease: "linear",
                                     repeatDelay: 1
                                 }}
+                                style={{ willChange: 'transform' }}
                             />
 
                             <h2 className="relative z-10 text-2xl md:text-5xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-500 uppercase tracking-[0.1em] font-orbitron drop-shadow-[0_0_25px_rgba(139,92,246,0.5)]">
@@ -306,6 +340,7 @@ const ProblemStatements = () => {
                             className="absolute inset-0 bg-gradient-to-r from-violet-600/0 via-violet-600/10 to-violet-600/0"
                             animate={{ x: ['-100%', '100%'] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            style={{ willChange: 'transform' }}
                         />
 
                         <div className="relative z-10">
@@ -325,6 +360,7 @@ const ProblemStatements = () => {
                                     className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
                                     animate={{ x: ['-100%', '100%'] }}
                                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                    style={{ willChange: 'transform' }}
                                 />
                                 <span className="relative text-2xl">📁</span>
                                 <span className="relative">VIEW GOOGLE DRIVE</span>

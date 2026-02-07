@@ -189,15 +189,15 @@ const ProblemStatements = () => {
 
                     <button
                         onClick={() => toggleExpand(level, index)}
-                        className="relative w-full px-6 py-5 flex items-center justify-between text-left group/btn"
+                        className="relative w-full px-4 py-4 md:px-6 md:py-5 flex items-center justify-between text-left group/btn"
                     >
-                        <div className="flex items-center gap-4 flex-1">
+                        <div className="flex items-center gap-3 md:gap-4 flex-1">
                             <span
-                                className="text-violet-400 font-orbitron font-bold text-sm min-w-[2rem] transition-colors duration-200"
+                                className="text-violet-400 font-orbitron font-bold text-xs md:text-sm min-w-[1.5rem] md:min-w-[2rem] transition-colors duration-200"
                             >
                                 {String(index + 1).padStart(2, '0')}
                             </span>
-                            <h4 className="text-gray-200 font-rajdhani text-lg font-medium group-hover/btn:text-white transition-colors">
+                            <h4 className="text-gray-200 font-rajdhani text-base md:text-lg font-medium group-hover/btn:text-white transition-colors leading-tight">
                                 {problem.title}
                             </h4>
                         </div>

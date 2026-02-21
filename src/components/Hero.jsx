@@ -205,8 +205,9 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
         y.set(yPos);
     };
 
-    const handleFinaleClick = () => {
-        window.open('https://finale.prajwalan.com', '_blank');
+    const handleBrochureClick = () => {
+        setActiveView('brochure');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     const handleRegisterClick = () => {
@@ -303,59 +304,21 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
                             variants={{ hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1 } }}
                             className="flex flex-col md:flex-row justify-center items-center gap-6"
                         >
-                            {/* ⚡ FINALE BUTTON — Navbar-style with Thunder Bolts */}
-                            <motion.div
+                            {/* 📄 VIEW BROCHURE BUTTON */}
+                            <motion.button
                                 whileHover={{ scale: 1.08 }}
-                                className="relative px-10 py-4 rounded-full border border-violet-500/50 bg-violet-900/20 backdrop-blur-md hover:bg-violet-900/40 font-orbitron font-bold tracking-widest uppercase transition-all min-w-[220px] shadow-[0_0_15px_rgba(139,92,246,0.2)] group overflow-visible cursor-not-allowed"
+                                whileTap={{ scale: 0.95 }}
+                                onClick={handleBrochureClick}
+                                className="relative px-10 py-4 rounded-full border border-violet-500/50 bg-violet-900/20 backdrop-blur-md hover:bg-violet-900/40 font-orbitron font-bold tracking-widest uppercase transition-all min-w-[220px] shadow-[0_0_15px_rgba(139,92,246,0.2)] group overflow-visible cursor-pointer flex items-center justify-center gap-3"
                             >
-                                {/* Tooltip */}
-                                <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-widest text-violet-300 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap bg-black/80 px-2 py-1 rounded border border-violet-500/30 backdrop-blur-sm z-30 pointer-events-none">
-                                    COMING SOON
+                                {/* Glowing gradient text */}
+                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-400 font-black tracking-widest uppercase drop-shadow-[0_0_15px_rgba(167,139,250,0.8)] filter brightness-125">
+                                    View Brochure
                                 </span>
 
-                                {/* Glowing gradient text — same as navbar */}
-                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-400 font-black tracking-widest uppercase drop-shadow-[0_0_15px_rgba(167,139,250,0.8)] filter brightness-125 animate-pulse">
-                                    Finale
-                                </span>
-
-                                {/* Thunder Bolts SVG — same as navbar */}
-                                <svg className="absolute -top-6 -left-2 h-[180%] w-[140%] pointer-events-none z-20 overflow-visible" xmlns="http://www.w3.org/2000/svg">
-                                    <filter id="hero-glow" x="-20%" y="-20%" width="140%" height="140%">
-                                        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur" />
-                                            <feMergeNode in="SourceGraphic" />
-                                        </feMerge>
-                                    </filter>
-                                    <path d="M10,0 L15,15 L5,15 L20,35" className="stroke-violet-300 fill-none opacity-0" strokeWidth="2" filter="url(#hero-glow)" style={{ animation: 'hero-lightning-1 2s infinite' }} />
-                                    <path d="M35,-5 L30,12 L40,12 L25,30" className="stroke-white fill-none opacity-0" strokeWidth="2" filter="url(#hero-glow)" style={{ animation: 'hero-lightning-2 3s infinite 0.5s' }} />
-                                    <path d="M50,5 L45,18 L55,18 L40,40" className="stroke-violet-400 fill-none opacity-0" strokeWidth="2" filter="url(#hero-glow)" style={{ animation: 'hero-lightning-3 2.5s infinite 1.2s' }} />
-                                </svg>
-
-                                <style>{`
-                                    @keyframes hero-lightning-1 {
-                                        0%, 90% { opacity: 0; stroke-dasharray: 0 100; }
-                                        92% { opacity: 1; stroke-dasharray: 100 0; }
-                                        94% { opacity: 0; }
-                                        96% { opacity: 1; }
-                                        100% { opacity: 0; }
-                                    }
-                                    @keyframes hero-lightning-2 {
-                                        0%, 85% { opacity: 0; stroke-dasharray: 0 100; }
-                                        87% { opacity: 1; stroke-dasharray: 100 0; }
-                                        89% { opacity: 0; }
-                                        91% { opacity: 1; }
-                                        100% { opacity: 0; }
-                                    }
-                                    @keyframes hero-lightning-3 {
-                                        0%, 92% { opacity: 0; stroke-dasharray: 0 100; }
-                                        94% { opacity: 1; stroke-dasharray: 100 0; }
-                                        96% { opacity: 0; }
-                                        98% { opacity: 1; }
-                                        100% { opacity: 0; }
-                                    }
-                                `}</style>
-                            </motion.div>
+                                {/* Subtle glow ring on hover */}
+                                <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(139,92,246,0.3),0_0_30px_rgba(139,92,246,0.2)]" />
+                            </motion.button>
 
                             {/* 🔓 REGISTER NOW BUTTON (Activated - Shows Popup) */}
                             <motion.button
@@ -372,6 +335,8 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
             </div>
 
             {/* Scroll Indicator */}
+
+
 
             {/* Missed Chance Popup */}
             <MissedChancePopup

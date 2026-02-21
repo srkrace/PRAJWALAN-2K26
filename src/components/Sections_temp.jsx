@@ -1,0 +1,1 @@
+﻿                            className="h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] group-hover:drop-shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-300 group-hover:brightness-110"

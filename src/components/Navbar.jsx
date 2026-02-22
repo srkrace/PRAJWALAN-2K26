@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Navbar = ({ setActiveView }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +12,33 @@ const Navbar = ({ setActiveView }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const FINALE_URL = 'https://finale.prajwalan-2k26.tech';
+    const FINALE_DEADLINE = new Date('2026-02-27T00:00:00+05:30').getTime();
+
+    const getTimeLeft = () => {
+        const diff = FINALE_DEADLINE - Date.now();
+        if (diff <= 0) return null;
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        return { d, h, m, s };
+    };
+
+    const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+
+    useEffect(() => {
+        const interval = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const finaleUnlocked = timeLeft === null;
+
     const navLinks = [
-        { name: 'Problem Statements', href: '#ps' },
+        // { name: 'Problem Statements', href: '#ps' },
         { name: 'Team', href: '#team' },
         { name: 'Timeline', href: '#timeline' },
-        // { name: 'Gallery', href: '#gallery' },
+        { name: 'Gallery', href: '#gallery' },
         { name: 'Finale', href: null, special: true },
     ];
 
@@ -28,9 +50,12 @@ const Navbar = ({ setActiveView }) => {
         } else if (link.name === 'Problem Statements') {
             setActiveView('ps');
             window.scrollTo(0, 0);
+        } else if (link.name === 'Finale') {
+            if (finaleUnlocked) {
+                window.open(FINALE_URL, '_blank', 'noopener,noreferrer');
+            }
         } else {
             setActiveView('home');
-            // Allow time for view to switch before scrolling
             setTimeout(() => {
                 const element = document.querySelector(link.href);
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
@@ -62,9 +87,15 @@ const Navbar = ({ setActiveView }) => {
                             className="text-sm uppercase tracking-widest text-gray-300 hover:text-white transition-colors duration-300 relative group font-orbitron font-bold"
                         >
                             {link.special ? (
-                                <div className="relative group cursor-not-allowed">
-                                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-widest text-violet-300 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap bg-black/80 px-2 py-1 rounded border border-violet-500/30 backdrop-blur-sm z-30 pointer-events-none">
-                                        COMING SOON
+                                <div className={`relative group ${finaleUnlocked ? 'cursor-pointer' : 'cursor-not-allowed'}`}>
+                                    <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap bg-black/80 px-2 py-1 rounded border border-violet-500/30 backdrop-blur-sm z-30 pointer-events-none">
+                                        {finaleUnlocked ? (
+                                            <span className="text-[10px] font-bold tracking-widest text-green-300">VISIT FINALE →</span>
+                                        ) : (
+                                            <span className="text-[10px] font-bold tracking-widest text-violet-300">
+                                                {timeLeft && timeLeft.d > 0 && `${timeLeft.d}d `}{timeLeft && String(timeLeft.h).padStart(2, '0')}:{timeLeft && String(timeLeft.m).padStart(2, '0')}:{timeLeft && String(timeLeft.s).padStart(2, '0')}
+                                            </span>
+                                        )}
                                     </span>
                                     <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-white via-violet-200 to-violet-400 font-black tracking-widest uppercase drop-shadow-[0_0_15px_rgba(167,139,250,0.8)] filter brightness-125 animate-pulse">
                                         {link.name}

@@ -43,8 +43,14 @@ const GoldenParticle = ({ delay, index }) => {
     );
 };
 
-// --- Missed Chance Popup Component ---
+// --- Missed Chance Popup (full-screen modal, auto-dismisses in 3s) ---
 const MissedChancePopup = ({ isOpen, onClose }) => {
+    useEffect(() => {
+        if (!isOpen) return;
+        const timer = setTimeout(onClose, 3000);
+        return () => clearTimeout(timer);
+    }, [isOpen, onClose]);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -57,119 +63,48 @@ const MissedChancePopup = ({ isOpen, onClose }) => {
                 >
                     {/* Backdrop */}
                     <motion.div
-                        className="absolute inset-0 bg-black/80 backdrop-blur-md"
+                        className="absolute inset-0 bg-black/75 backdrop-blur-md"
                         onClick={onClose}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
                     />
 
-                    {/* Golden Sparkle Particles */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        {Array.from({ length: 30 }).map((_, i) => (
-                            <GoldenParticle key={i} delay={0} index={i} />
-                        ))}
-                    </div>
-
-                    {/* Popup Card */}
+                    {/* Card */}
                     <motion.div
-                        className="relative z-10 w-[90%] max-w-md mx-4 rounded-3xl overflow-hidden"
-                        initial={{ scale: 0.5, opacity: 0, y: 50 }}
+                        className="relative z-10 w-[90%] max-w-sm mx-4"
+                        initial={{ scale: 0.7, opacity: 0, y: 40 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
-                        exit={{ scale: 0.8, opacity: 0, y: 30 }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.1 }}
+                        exit={{ scale: 0.85, opacity: 0, y: 20 }}
+                        transition={{ type: 'spring', stiffness: 320, damping: 26, delay: 0.05 }}
                     >
-                        {/* Card Background with Glassmorphism */}
-                        <div className="relative bg-gradient-to-b from-[#1a0a2e]/95 via-[#0d0520]/95 to-[#0a0118]/95 backdrop-blur-xl border border-violet-500/30 rounded-3xl p-8 md:p-10 shadow-[0_0_60px_rgba(139,92,246,0.3),0_0_120px_rgba(255,215,0,0.1)]">
+                        <div className="relative bg-gradient-to-b from-[#1a0a2e]/95 via-[#0d0520]/95 to-[#0a0118]/95 backdrop-blur-xl border border-violet-500/30 rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(139,92,246,0.35)]">
 
-                            {/* Inner glow */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-amber-500/10 rounded-full blur-[80px] pointer-events-none" />
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-violet-600/10 rounded-full blur-[60px] pointer-events-none" />
-
-                            {/* Trophy/Emoji Section */}
+                            {/* Progress bar */}
                             <motion.div
-                                className="flex flex-col items-center mb-6"
-                                initial={{ y: -20, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.3, duration: 0.6 }}
-                            >
-                                {/* Animated Emoji */}
-                                <motion.div
-                                    className="text-7xl md:text-8xl mb-4 select-none"
-                                    animate={{
-                                        y: [0, -12, 0],
-                                        rotate: [0, -5, 5, 0],
-                                    }}
-                                    transition={{
-                                        duration: 2,
-                                        repeat: Infinity,
-                                        ease: 'easeInOut',
-                                    }}
-                                >
-                                    🔒
-                                </motion.div>
+                                className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-violet-500 to-amber-400"
+                                initial={{ width: '100%' }}
+                                animate={{ width: '0%' }}
+                                transition={{ duration: 3, ease: 'linear' }}
+                            />
 
-                                {/* Decorative line */}
-                                <motion.div
-                                    className="h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"
-                                    initial={{ width: 0 }}
-                                    animate={{ width: '80%' }}
-                                    transition={{ delay: 0.5, duration: 0.8 }}
-                                />
-                            </motion.div>
+                            <div className="p-8 flex flex-col items-center gap-5 text-center">
+                                {/* Lock Icon */}
+                                <div className="w-16 h-16 rounded-full bg-amber-500/15 border border-amber-400/30 flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.2)]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </div>
 
-                            {/* Main Text */}
-                            <motion.div
-                                className="text-center mb-6"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4, duration: 0.5 }}
-                            >
-                                <h3 className="text-2xl md:text-3xl font-black font-orbitron tracking-wider mb-3">
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 drop-shadow-[0_0_20px_rgba(255,215,0,0.5)]">
-                                        You Missed a
-                                    </span>
-                                    <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 drop-shadow-[0_0_25px_rgba(255,165,0,0.6)]">
-                                        Golden Chance!
-                                    </span>
-                                </h3>
+                                <div>
+                                    <p className="text-lg font-black font-orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500">Registrations Closed</p>
+                                    <p className="text-sm text-gray-400 mt-2 leading-relaxed">PRAJWALAN 2K26 registrations are now closed. Stay tuned for future events!</p>
+                                </div>
 
-                                <motion.div
-                                    className="flex items-center justify-center gap-2 my-4"
-                                    initial={{ scale: 0 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
-                                >
-                                    <span className="text-xl">✨</span>
-                                    <span className="text-amber-400/80 text-xs font-orbitron tracking-[0.3em] uppercase">
-                                        Registrations Closed
-                                    </span>
-                                    <span className="text-xl">✨</span>
-                                </motion.div>
-
-                                <p className="text-gray-400 font-rajdhani text-base md:text-lg leading-relaxed max-w-sm mx-auto">
-                                    Registrations for <span className="text-violet-300 font-semibold">PRAJWALAN 2K26</span> are now closed.
-                                    Stay tuned for future events and don't miss the next opportunity!
-                                </p>
-                            </motion.div>
-
-                            {/* Close Button */}
-                            <motion.div
-                                className="flex justify-center"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.7 }}
-                            >
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={onClose}
-                                    className="px-8 py-3 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-orbitron font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(139,92,246,0.4)] border border-violet-400/30 transition-all duration-300"
-                                >
-                                    Got It
-                                </motion.button>
-                            </motion.div>
+                                {/* Close X */}
+                                <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -320,6 +255,7 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
                                 <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(139,92,246,0.3),0_0_30px_rgba(139,92,246,0.2)]" />
                             </motion.button>
 
+
                             {/* 🔓 REGISTER NOW BUTTON (Activated - Shows Popup) */}
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -329,6 +265,12 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
                             >
                                 Register Now
                             </motion.button>
+
+                            {/* Missed Chance Popup */}
+                            <MissedChancePopup
+                                isOpen={showMissedPopup}
+                                onClose={() => setShowMissedPopup(false)}
+                            />
                         </motion.div>
                     </motion.div>
                 </div>
@@ -338,11 +280,7 @@ const Hero = ({ introPlayed, setIntroPlayed, setActiveView }) => {
 
 
 
-            {/* Missed Chance Popup */}
-            <MissedChancePopup
-                isOpen={showMissedPopup}
-                onClose={() => setShowMissedPopup(false)}
-            />
+
         </section>
     );
 };

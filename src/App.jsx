@@ -47,11 +47,9 @@ function App() {
               </>
             )}
 
-            {/* Gallery section commented out
             {view === 'gallery' && (
               <Gallery />
             )}
-            */}
 
             {view === 'team' && (
               <Team />
